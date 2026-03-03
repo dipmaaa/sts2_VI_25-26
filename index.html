@@ -237,7 +237,9 @@
 
             <div class="question-card">
                 <p>25. Sebutkan 3 keterangan waktu (adverb of time) yang biasa digunakan dalam Simple Future Tense!</p>
-                <input type="text" id="q25_fill">
+                <input type="text" id="q25a_fill">
+                <input type="text" id="q25b_fill">
+                <input type="text" id="q25c_fill">
             </div>
 
             <p id="loadingMsg" class="hidden">Sedang mengirim jawaban...</p>
@@ -310,8 +312,14 @@
         if (document.getElementById('q24_fill').value.toLowerCase().includes('will')) score += 6;
         
         // 25. Adverb of time (Cek apakah mengandung salah satu kata kunci)
-        const q25Val = document.getElementById('q25_fill').value.toLowerCase();
-        if (q25Val.includes('tomorrow') || q25Val.includes('next') || q25Val.includes('soon') || q25Val.includes('in') || q25Val.includes('tonight') || q25Val.includes('later') || q25Val.includes('by and by')) score += 6;
+        const q25aVal = document.getElementById('q25a_fill').value.toLowerCase();
+        if (q25aVal.includes('tomorrow') || q25aVal.includes('next') || q25aVal.includes('soon') || q25aVal.includes('in') || q25aVal.includes('tonight') || q25aVal.includes('later') || q25aVal.includes('by and by')) score += 6;
+
+        const q25bVal = document.getElementById('q25b_fill').value.toLowerCase();
+        if (q25bVal.includes('tomorrow') || q25bVal.includes('next') || q25bVal.includes('soon') || q25bVal.includes('in') || q25bVal.includes('tonight') || q25bVal.includes('later') || q25bVal.includes('by and by')) score += 6;
+
+        const q25cVal = document.getElementById('q25_fill').value.toLowerCase();
+        if (q25cVal.includes('tomorrow') || q25cVal.includes('next') || q25cVal.includes('soon') || q25cVal.includes('in') || q25cVal.includes('tonight') || q25cVal.includes('later') || q25cVal.includes('by and by')) score += 6;
 
         btn.disabled = true;
         loader.classList.remove('hidden');
