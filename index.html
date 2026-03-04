@@ -29,7 +29,7 @@
     <header>
         <h2>SUMATIF TENGAH SEMESTER (STS) GENAP</h2>
         <h3>SDN 1 SENDANGREJO - KEC. LAMONGAN</h3>
-        <p>Mata Pelajaran: English (Adjectives & Degrees of Comparison)</p>
+        <p>Mata Pelajaran: English (Simple Future Tense)</p>
         <p>Kelas: VI (Enam)</p>
     </header>
 
@@ -186,8 +186,8 @@
 
             <div class="question-card">
                 <p>16. ... you ... (join) the scout activity tomorrow?</p>
-                <input type="text" id="q16a_fill" placeholder="Jawaban ...">
-                <input type="text" id="q16b_fill" placeholder="Jawaban ...">
+                <input type="text" id="q16a_fill" placeholder="Isi 'Will' ...">
+                <input type="text" id="q16b_fill" placeholder="Isi 'join' ...">
             </div>
 
             <div class="question-card">
@@ -225,9 +225,9 @@
             </div>
 
             <div class="question-card">
-                <p>23. Ubahlah kelimat ini menjadi bentuk tanya!</p>
+                <p>23. Ubahlah kalimat ini menjadi bentuk tanya!</p>
                 <p>Santi will buy a new doll.</p>
-                <input type="text" id="q23_fill">
+                <input type="text" id="text_q23">
             </div>
 
             <div class="question-card">
@@ -263,6 +263,11 @@
         window.scrollTo(0,0);
     }
 
+    // Fungsi pembersih input agar tidak sensitif tanda baca/spasi
+    function clean(str) {
+        return str.toLowerCase().trim().replace(/[.?!]/g, "");
+    }
+
     async function calculateAndSend() {
         let score = 0;
         const name = document.getElementById('studentName').value;
@@ -270,7 +275,7 @@
         const btn = document.getElementById('submitBtn');
         const loader = document.getElementById('loadingMsg');
 
-        // Logic PG (@4 poin)
+        // --- Logic PG (@4 poin x 10 = 40) ---
         if (document.querySelector('input[name="q1"]:checked')?.value === 'b') score += 4;
         if (document.querySelector('input[name="q2"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q3"]:checked')?.value === 'a') score += 4;
@@ -279,68 +284,3 @@
         if (document.querySelector('input[name="q6"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q7"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q8"]:checked')?.value === 'a') score += 4;
-        if (document.querySelector('input[name="q9"]:checked')?.value === 'a') score += 4;
-        if (document.querySelector('input[name="q10"]:checked')?.value === 'a') score += 4;
-        
-        // Logic Isian (@4 poin)
-        const checkText = (id, target) => document.getElementById(id).value.toLowerCase().trim() === target.toLowerCase();
-        if (checkText('q11_fill', 'will buy')) score += 4;
-        if (checkText('q12_fill', 'will study')) score += 4;
-        if (checkText('q13_fill', 'will help')) score += 4;
-        if (checkText('q14_fill', 'will answer')) score += 4;
-        if (checkText('q15_fill', 'will watch')) score += 4;
-        if (checkText('q16a_fill', 'will')) score += 4;
-        if (checkText('q16b_fill', 'join')) score += 4;
-        if (checkText('q17_fill', 'will close')) score += 4;
-        if (checkText('q18_fill', 'will cook')) score += 4;
-        if (checkText('q19_fill', 'will visit')) score += 4;
-        if (checkText('q20_fill', 'will go')) score += 4;
-
-        // Logic Essay (@6 poin per soal, Total 20 poin)
-        // 21. Reorder sentence
-        if (checkText('q21_fill', 'They will plant flowers in the garden tomorrow')) score += 6;
-        
-        // 22. Negative form
-        if (checkText('q22_fill', 'Tono will not visit the museum next week')) score += 6;
-        
-        // 23. Interrogative form
-        if (checkText('q23_fill', 'Will Santi buy a new doll?')) score += 6;
-        
-        // 24. Personal Sentence (Kebijakan guru: di sini kita cek minimal ada kata "will")
-        if (document.getElementById('q24_fill').value.toLowerCase().includes('will')) score += 6;
-        
-        // 25. Adverb of time (Cek apakah mengandung salah satu kata kunci)
-        const q25Val = document.getElementById('q25_fill').value.toLowerCase();
-        if (q25Val.includes('tomorrow') || q25Val.includes('next') || q25Val.includes('soon') || q25Val.includes('in') || q25Val.includes('tonight') || q25Val.includes('later') || q25Val.includes('by and by')) score += 6;
-
-        btn.disabled = true;
-        loader.classList.remove('hidden');
-
-        const formData = new FormData();
-        formData.append('Nama Siswa', name);
-        formData.append('Absen', absen);
-        formData.append('Skor Total', score);
-
-        try {
-            await fetch("https://formspree.io/f/mqedjvar", {
-                method: "POST",
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-            
-            document.getElementById('quiz-area').classList.add('hidden');
-            document.getElementById('result-area').classList.remove('hidden');
-            document.getElementById('displayName').innerText = "Nama: " + name;
-            document.getElementById('totalScore').innerText = score;
-            document.getElementById('scoreTableArea').innerHTML = `<table><tr><th>Nama</th><th>Absen</th><th>Skor</th></tr><tr><td>${name}</td><td>${absen}</td><td>${score}/100</td></tr></table>`;
-        } catch (e) {
-            alert("Gagal kirim, skor: " + score);
-            btn.disabled = false;
-        } finally {
-            loader.classList.add('hidden');
-        }
-    }
-</script>
-
-</body>
-</html>
