@@ -13,15 +13,14 @@
         .question-card { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa; }
         .options label { display: block; margin: 10px 0; cursor: pointer; padding: 10px; border-radius: 5px; transition: 0.3s; }
         .options label:hover { background: #e3f2fd; }
-        input[type="text"], input[type="number"] { width: 100%; padding: 12px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
-        button { background: var(--primary); color: white; border: none; padding: 15px 25px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; margin-top: 20px; transition: 0.3s; }
-        button:hover { background: #357abd; transform: translateY(-2px); }
-        button:disabled { background: #ccc; cursor: not-allowed; }
+        input[type="text"], input[type="number"] { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; margin-top: 20px; }
+        button:hover { background: #357abd; }
+        button:disabled { background: #ccc; }
         #result-area { text-align: center; padding: 20px; }
-        .score-circle { font-size: 60px; color: var(--success); font-weight: bold; margin: 20px 0; }
+        .score-circle { font-size: 48px; color: var(--success); font-weight: bold; margin: 20px 0; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         table, th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background-color: #f8f9fa; }
     </style>
 </head>
 <body>
@@ -30,7 +29,7 @@
     <header>
         <h2>SUMATIF TENGAH SEMESTER (STS) GENAP</h2>
         <h3>SDN 1 SENDANGREJO - KEC. LAMONGAN</h3>
-        <p>Mata Pelajaran: English (Simple Future Tense)</p>
+        <p>Mata Pelajaran: English (Adjectives & Degrees of Comparison)</p>
         <p>Kelas: VI (Enam)</p>
     </header>
 
@@ -38,7 +37,7 @@
         <h4>Identitas Siswa:</h4>
         <input type="text" id="studentName" placeholder="Masukkan Nama Lengkap" required>
         <input type="number" id="studentAbsen" placeholder="Nomor Absen" required>
-        <button type="button" onclick="startQuiz()">Mulai Ujian</button>
+        <button onclick="startQuiz()">Mulai Ujian</button>
     </div>
 
     <div id="quiz-area" class="hidden">
@@ -67,8 +66,8 @@
             </div>
 
             <div class="question-card">
-                <p>Rina : What are you doing, Sam?<br>
-                Sam  : I am preparing my bag. My family and I ... visit our grandmother in Bandung tonight.</p>
+                <p>Rina : What are you doing, Sam?</p> 
+                <p>Sam  : I am preparing my bag. My family and I ... visit our grandmother in Bandung tonight.</p>
                 <p>3. The best word to fill the blank is ...</p>
                 <div class="options">
                     <label><input type="radio" name="q3" value="a"> a. will</label>
@@ -79,7 +78,9 @@
             </div>
 
             <div class="question-card">
-                <p>4. Based on the text above (no. 3), Sam ... visit his grandmother tonight.</p>
+                <p>Rina : What are you doing, Sam?</p> 
+                <p>Sam  : I am preparing my bag. My family and I ... visit our grandmother in Bandung tonight.</p>
+                <p>4. Based on the text above, Sam ... visit his grandmother tonight.</p>
                 <div class="options">
                     <label><input type="radio" name="q4" value="a"> a. will</label>
                     <label><input type="radio" name="q4" value="b"> b. won't</label>
@@ -129,7 +130,10 @@
             </div>
 
             <div class="question-card">
-                <p><i>Next Sunday, my school will hold a cleaning day. All students will bring cleaning tools. We will clean the classroom and the garden. After that, the teacher will give up some snacks.</i></p>
+                <p>Next Sunday, my school will hold a cleaning day.</p>
+                <p>All students will bring cleaning tools.</p>
+                <p>We will clean the classroom and the garden.</p>
+                <p>After that, the teacher will give up some snacks.</p>
                 <p>9. Next Sunday, the students ... clean the school.</p> 
                 <div class="options">
                     <label><input type="radio" name="q9" value="a"> a. will</label>
@@ -140,7 +144,11 @@
             </div>
 
              <div class="question-card">
-                <p>10. Based on the text above, the teacher ... give the snacks to the students after cleaning.</p>
+                <p>Next Sunday, my school will hold a cleaning day.</p>
+                <p>All students will bring cleaning tools.</p>
+                <p>We will clean the classroom and the garden.</p>
+                <p>After that, the teacher will give up some snacks.</p>
+                <p>10. The teacher ... give the snacks to the students after cleaning.</p>
                 <div class="options">
                     <label><input type="radio" name="q10" value="a"> a. will</label>
                     <label><input type="radio" name="q10" value="b"> b. won't</label>
@@ -150,120 +158,111 @@
             </div>
 
             <h3>B. Fill in the Blanks</h3>
-            <p>Isilah titik-titik dengan "will" atau "will not (won't)" + kata kerja dalam kurung!</p>
+            <p>Isilah titik-titik di bawah ini dengan will atau will not (won't) yang tepat!</p>
             <div class="question-card">
                 <p>11. My father ... (buy) a new car next month.</p>
-                <input type="text" id="q11_fill" placeholder="Contoh: will buy">
+                <input type="text" id="q11_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>12. I ... (study) hard for the final exam tonight.</p>
-                <input type="text" id="q12_fill">
+                <input type="text" id="q12_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>13. Don't worry, I ... (help) you with your homework.</p>
-                <input type="text" id="q13_fill">
+                <input type="text" id="q13_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>14. The phone is ringing. I ... (answer) it.</p>
-                <input type="text" id="q14_fill">
+                <input type="text" id="q14_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>15. They ... (watch) a movie at the cinema this weekend.</p>
-                <input type="text" id="q15_fill">
+                <input type="text" id="q15_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>16. ... you ... (join) the scout activity tomorrow?</p>
-                <input type="text" id="q16a_fill" placeholder="Kotak 1">
-                <input type="text" id="q16b_fill" placeholder="Kotak 2">
+                <input type="text" id="q16a_fill" placeholder="Jawaban ...">
+                <input type="text" id="q16b_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>17. It's very cold here. I ... (close) the window.</p>
-                <input type="text" id="q17_fill">
+                <input type="text" id="q17_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>18. My sister ... (cook) fried rice for breakfast tomorrow morning.</p>
-                <input type="text" id="q18_fill">
+                <input type="text" id="q18_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>19. We ... (visit) the zoo if we have enough time.</p>
-                <input type="text" id="q19_fill">
+                <input type="text" id="q19_fill" placeholder="Jawaban ...">
             </div>
 
             <div class="question-card">
                 <p>20. I am tired. I ... (go) to sleep early tonight.</p>
-                <input type="text" id="q20_fill">
+                <input type="text" id="q20_fill" placeholder="Jawaban ...">
             </div>
 
-            <h3>C. Essay</h3>
+            <h4>C. Essay</h4>
+            <p>Jawablah pertanyaan di bawah ini dengan benar!</p>
             <div class="question-card">
-                <p>21. Susunlah: garden - will - they - flowers - plant - the - in - tomorrow</p>
+                <p>21. Susunlah kata-kata berikut menjadi kalimat yang benar!</p>
+                <p>garden - will - they - flowers - plant - the - in - tomorrow</p>
                 <input type="text" id="q21_fill">
             </div>
 
              <div class="question-card">
-                <p>22. Ubah ke Negatif: Tono will visit the museum next week.</p>
+                <p>22. Ubahlah kalimat ini menjadi bentuk negatif!</p>
+                <p>Tono will visit the museum next week.</p>
                 <input type="text" id="q22_fill">
             </div>
 
             <div class="question-card">
-                <p>23. Ubah ke Tanya (?): Santi will buy a new doll.</p>
+                <p>23. Ubahlah kelimat ini menjadi bentuk tanya!</p>
+                <p>Santi will buy a new doll.</p>
                 <input type="text" id="q23_fill">
             </div>
 
             <div class="question-card">
-                <p>24. Buatlah satu kalimat "will" tentang cita-citamu!</p>
+                <p>24. Buatlah satu kalimat menggunakan "will" tentang cita-citamu!</p>
                 <input type="text" id="q24_fill">
             </div>
 
             <div class="question-card">
-                <p>25. Sebutkan 3 keterangan waktu Simple Future Tense!</p>
+                <p>25. Sebutkan 3 keterangan waktu (adverb of time) yang biasa digunakan dalam Simple Future Tense!</p>
                 <input type="text" id="q25_fill">
             </div>
 
-            <p id="loadingMsg" class="hidden" style="color: blue;">Sedang mengirim jawaban, mohon tunggu...</p>
+            <p id="loadingMsg" class="hidden">Sedang mengirim jawaban...</p>
             <button type="button" id="submitBtn" onclick="calculateAndSend()">Kirim Jawaban</button>
         </form>
     </div>
 
     <div id="result-area" class="hidden">
         <h2>Hasil Ujian</h2>
-        <p id="displayName" style="font-weight: bold;"></p>
+        <p id="displayName"></p>
         <div class="score-circle" id="totalScore">0</div>
         <div id="scoreTableArea"></div>
-        <button type="button" onclick="location.reload()">Ulangi Ujian</button>
+        <button onclick="location.reload()">Ulangi Ujian</button>
     </div>
 </div>
 
 <script>
-    // FUNGSI MULAI
     function startQuiz() {
         const name = document.getElementById('studentName').value;
-        const absen = document.getElementById('studentAbsen').value;
-
-        if (name.trim() === "" || absen.trim() === "") {
-            alert("Harap isi Nama dan Nomor Absen dulu ya!");
-            return;
-        }
-
+        if(name.trim() === "") return alert("Isi nama dulu ya!");
         document.getElementById('setup').classList.add('hidden');
         document.getElementById('quiz-area').classList.remove('hidden');
-        window.scrollTo(0, 0);
+        window.scrollTo(0,0);
     }
 
-    // FUNGSI MEMBERSIHKAN TEKS
-    function clean(str) {
-        return str.toLowerCase().trim().replace(/[.?!]/g, "");
-    }
-
-    // FUNGSI HITUNG & KIRIM
     async function calculateAndSend() {
         let score = 0;
         const name = document.getElementById('studentName').value;
@@ -271,7 +270,7 @@
         const btn = document.getElementById('submitBtn');
         const loader = document.getElementById('loadingMsg');
 
-        // PG (@4 poin)
+        // Logic PG (@4 poin)
         if (document.querySelector('input[name="q1"]:checked')?.value === 'b') score += 4;
         if (document.querySelector('input[name="q2"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q3"]:checked')?.value === 'a') score += 4;
@@ -283,33 +282,37 @@
         if (document.querySelector('input[name="q9"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q10"]:checked')?.value === 'a') score += 4;
         
-        // Isian (@3 poin)
-        if (clean(document.getElementById('q11_fill').value) === 'will buy') score += 3;
-        if (clean(document.getElementById('q12_fill').value) === 'will study') score += 3;
-        if (clean(document.getElementById('q13_fill').value) === 'will help') score += 3;
-        if (clean(document.getElementById('q14_fill').value) === 'will answer') score += 3;
-        if (clean(document.getElementById('q15_fill').value) === 'will watch') score += 3;
-        if (clean(document.getElementById('q16a_fill').value) === 'will') score += 1.5;
-        if (clean(document.getElementById('q16b_fill').value) === 'join') score += 1.5;
-        if (clean(document.getElementById('q17_fill').value) === 'will close') score += 3;
-        if (clean(document.getElementById('q18_fill').value) === 'will cook') score += 3;
-        if (clean(document.getElementById('q19_fill').value) === 'will visit') score += 3;
-        if (clean(document.getElementById('q20_fill').value) === 'will go') score += 3;
+        // Logic Isian (@4 poin)
+        const checkText = (id, target) => document.getElementById(id).value.toLowerCase().trim() === target.toLowerCase();
+        if (checkText('q11_fill', 'will buy')) score += 4;
+        if (checkText('q12_fill', 'will study')) score += 4;
+        if (checkText('q13_fill', 'will help')) score += 4;
+        if (checkText('q14_fill', 'will answer')) score += 4;
+        if (checkText('q15_fill', 'will watch')) score += 4;
+        if (checkText('q16a_fill', 'will')) score += 4;
+        if (checkText('q16b_fill', 'join')) score += 4;
+        if (checkText('q17_fill', 'will close')) score += 4;
+        if (checkText('q18_fill', 'will cook')) score += 4;
+        if (checkText('q19_fill', 'will visit')) score += 4;
+        if (checkText('q20_fill', 'will go')) score += 4;
 
-        // Essay (@6 poin)
-        if (clean(document.getElementById('q21_fill').value) === 'they will plant flowers in the garden tomorrow') score += 6;
+        // Logic Essay (@6 poin per soal, Total 20 poin)
+        // 21. Reorder sentence
+        if (checkText('q21_fill', 'They will plant flowers in the garden tomorrow')) score += 6;
         
-        const q22 = clean(document.getElementById('q22_fill').value);
-        if (q22 === 'tono will not visit the museum next week' || q22 === "tono won't visit the museum next week") score += 6;
+        // 22. Negative form
+        if (checkText('q22_fill', 'Tono will not visit the museum next week')) score += 6;
         
-        if (clean(document.getElementById('q23_fill').value) === 'will santi buy a new doll') score += 6;
+        // 23. Interrogative form
+        if (checkText('q23_fill', 'Will Santi buy a new doll?')) score += 6;
         
+        // 24. Personal Sentence (Kebijakan guru: di sini kita cek minimal ada kata "will")
         if (document.getElementById('q24_fill').value.toLowerCase().includes('will')) score += 6;
         
+        // 25. Adverb of time (Cek apakah mengandung salah satu kata kunci)
         const q25Val = document.getElementById('q25_fill').value.toLowerCase();
-        if (q25Val.includes('tomorrow') || q25Val.includes('next') || q25Val.includes('tonight')) score += 6;
+        if (q25Val.includes('tomorrow') || q25Val.includes('next') || q25Val.includes('soon') || q25Val.includes('in') || q25Val.includes('tonight') || q25Val.includes('later') || q25Val.includes('by and by')) score += 6;
 
-        // Proses Kirim
         btn.disabled = true;
         loader.classList.remove('hidden');
 
@@ -327,14 +330,12 @@
             
             document.getElementById('quiz-area').classList.add('hidden');
             document.getElementById('result-area').classList.remove('hidden');
-            document.getElementById('displayName').innerText = "Nama: " + name + " (Absen: " + absen + ")";
+            document.getElementById('displayName').innerText = "Nama: " + name;
             document.getElementById('totalScore').innerText = score;
             document.getElementById('scoreTableArea').innerHTML = `<table><tr><th>Nama</th><th>Absen</th><th>Skor</th></tr><tr><td>${name}</td><td>${absen}</td><td>${score}/100</td></tr></table>`;
         } catch (e) {
-            alert("Koneksi bermasalah, tapi skor kamu tetap tersimpan di layar ini: " + score);
-            document.getElementById('quiz-area').classList.add('hidden');
-            document.getElementById('result-area').classList.remove('hidden');
-            document.getElementById('totalScore').innerText = score;
+            alert("Gagal kirim, skor: " + score);
+            btn.disabled = false;
         } finally {
             loader.classList.add('hidden');
         }
