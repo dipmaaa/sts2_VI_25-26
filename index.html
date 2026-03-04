@@ -284,3 +284,74 @@
         if (document.querySelector('input[name="q6"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q7"]:checked')?.value === 'a') score += 4;
         if (document.querySelector('input[name="q8"]:checked')?.value === 'a') score += 4;
+        if (document.querySelector('input[name="q9"]:checked')?.value === 'a') score += 4;
+        if (document.querySelector('input[name="q10"]:checked')?.value === 'a') score += 4;
+        
+        // --- Logic Isian (@3 poin x 10 = 30) ---
+        if (clean(document.getElementById('q11_fill').value) === 'will buy') score += 3;
+        if (clean(document.getElementById('q12_fill').value) === 'will study') score += 3;
+        if (clean(document.getElementById('q13_fill').value) === 'will help') score += 3;
+        if (clean(document.getElementById('q14_fill').value) === 'will answer') score += 3;
+        if (clean(document.getElementById('q15_fill').value) === 'will watch') score += 3;
+        
+        // Soal 16 ada 2 kotak, masing-masing 1.5 poin
+        if (clean(document.getElementById('q16a_fill').value) === 'will') score += 1.5;
+        if (clean(document.getElementById('q16b_fill').value) === 'join') score += 1.5;
+
+        if (clean(document.getElementById('q17_fill').value) === 'will close') score += 3;
+        if (clean(document.getElementById('q18_fill').value) === 'will cook') score += 3;
+        if (clean(document.getElementById('q19_fill').value) === 'will visit') score += 3;
+        if (clean(document.getElementById('q20_fill').value) === 'will go') score += 3;
+
+        // --- Logic Essay (@6 poin x 5 = 30) ---
+        // 21. Reorder
+        if (clean(document.getElementById('q21_fill').value) === 'they will plant flowers in the garden tomorrow') score += 6;
+        
+        // 22. Negative
+        const q22 = clean(document.getElementById('q22_fill').value);
+        if (q22 === 'tono will not visit the museum next week' || q22 === "tono won't visit the museum next week") score += 6;
+        
+        // 23. Interrogative (ID diperbaiki agar pas)
+        if (clean(document.getElementById('text_q23').value) === 'will santi buy a new doll') score += 6;
+        
+        // 24. Personal Sentence (Cek minimal ada "will")
+        if (document.getElementById('q24_fill').value.toLowerCase().includes('will')) score += 6;
+        
+        // 25. Adverb of time
+        const q25Val = document.getElementById('q25_fill').value.toLowerCase();
+        if (q25Val.includes('tomorrow') || q25Val.includes('next') || q25Val.includes('tonight')) score += 6;
+
+        // Final score total = 40 + 30 + 30 = 100
+
+        btn.disabled = true;
+        loader.classList.remove('hidden');
+
+        const formData = new FormData();
+        formData.append('Nama Siswa', name);
+        formData.append('Absen', absen);
+        formData.append('Skor Total', score);
+
+        try {
+            // Menggunakan Formspree sesuai kode aslimu
+            await fetch("https://formspree.io/f/mqedjvar", {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            document.getElementById('quiz-area').classList.add('hidden');
+            document.getElementById('result-area').classList.remove('hidden');
+            document.getElementById('displayName').innerText = "Nama: " + name;
+            document.getElementById('totalScore').innerText = score;
+            document.getElementById('scoreTableArea').innerHTML = `<table><tr><th>Nama</th><th>Absen</th><th>Skor</th></tr><tr><td>${name}</td><td>${absen}</td><td>${score}/100</td></tr></table>`;
+        } catch (e) {
+            alert("Gagal kirim ke server, tapi skor kamu adalah: " + score);
+            btn.disabled = false;
+        } finally {
+            loader.classList.add('hidden');
+        }
+    }
+</script>
+
+</body>
+</html>
